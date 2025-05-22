@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import styled from "styled-components";
-import ContentContainer from "./Layout/ContentContainer";
 
 interface AddTodoProps {
   className?: string;
@@ -17,19 +16,17 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
 
   return (
     <div className={className}>
-      <ContentContainer>
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          <input
-            placeholder="Enter new Todo..."
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button type="submit" />
-        </form>
-      </ContentContainer>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <input
+          placeholder="Enter new Todo..."
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button type="submit" />
+      </form>
     </div>
   );
 };
@@ -37,7 +34,6 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
 const StyledAddTodo = styled(AddTodo)`
   width: 100%;
   display: block;
-  background-color: ${(props) => props.theme.colors.grey1};
   padding: 0;
   margin-bottom: 47px;
   z-index: ${(props) => props.theme.zLayers.overlay};
@@ -49,7 +45,7 @@ const StyledAddTodo = styled(AddTodo)`
   input {
     padding: 23px;
     background-color: ${(props) => props.theme.colors.grey2};
-    border: none;
+    border: 2px solid ${(props) => props.theme.colors.grey1};
     outline: none;
     color: ${(props) => props.theme.colors.text};
     font-weight: 100;

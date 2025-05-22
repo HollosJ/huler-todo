@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import ContentContainer from "./Components/Layout/ContentContainer";
 import Header from "./Components/Layout/Header";
 import Layout from "./Components/Layout/Layout";
 import List from "./Components/List";
 import AddTodo from "./Components/AddTodo";
 import { Item } from "./types";
+import Main from "./Components/Layout/Main";
 
 const initialItems: Item[] = [
   { id: 1, name: "Write documentation for new website" },
@@ -34,11 +34,11 @@ export default function App() {
     <div className="App">
       <Layout>
         <Header />
-        <AddTodo onSubmit={onSubmit} />
-        <ContentContainer>
+        <Main>
+          <AddTodo onSubmit={onSubmit} />
           <List title="Todo" items={items} />
           <List title="Done" items={completedItems} />
-        </ContentContainer>
+        </Main>
       </Layout>
     </div>
   );

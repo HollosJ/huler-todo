@@ -14,7 +14,6 @@ const Header = ({ className }: HeaderProps) => {
 
 const StyledHeader = styled(Header)`
   display: block;
-  background-color: ${(props) => props.theme.colors.grey1};
   padding: 48px 48px 0 48px;
 
   > div {

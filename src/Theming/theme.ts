@@ -4,8 +4,10 @@ const theme = {
   },
   colors: {
     primary: "#FB6664",
-    grey1: "#1C1C21",
-    grey2: "#292931",
+    grey1: "#413F49",
+    grey2: "#1C1B22",
+    grey3: "#807E84",
+    grey4: "#101014",
     text: "#ffffff"
   },
   zLayers: {
