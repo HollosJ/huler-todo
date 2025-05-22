@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+<p style="text-align: center; margin: 50px 0"> <img src="./Logo.png" align=“center” width="100%" alt="Project icon"></p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Front End Developer Technical Challenge
 
-Currently, two official plugins are available:
+👋  Hey There!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For this challenge, we'd like you to finish a new piece of functionality called "Huler Todo".
 
-## Expanding the ESLint configuration
+### **Overview**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Huler Todo is a simple todo list, featuring abilities to:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Add a new todo
+- Mark a todo as completed by checking it, or dragging it over to the completed list
+- Reorder items by dragging
+- Ability to add sub-items
+- When all sub-items are completed, the item itself should be complete
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This repo contains the existing work. You can either clone it locally and upload to your own repo or simply click the 'use this template' button in the top right hand corner.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+We'd like you to finish off the project by:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Aligning it with the design as accurately as possible
+- Get as much functionality above as you can working
+- Tidy up any mistakes or errors that already exist in the code/console
+- Add in some responsive styling so it works across all screen sizes
+
+Bonus - Write some unit tests to verify your code
+
+Feel free to use any packages to assist you with the functionality required. 
+
+### **Design**
+
+[https://www.figma.com/design/1W6ddO6ZgPXwrOkG3Q4KwG/FE-Challenge](https://www.figma.com/design/1W6ddO6ZgPXwrOkG3Q4KwG/FE-Challenge)
+
+Open the Figma link above to see the design. If you do not already have a Figma account, these are free to sign up for and will help you with this task. You can download assets by clicking on them and using the Export feature in the right side panel, choosing a file type of your preference - some assets are already available in the public folder.
+
+You can also click on elements within the design to see information about them like typography, colours and sizing.
+
+---
+
+Thank you for taking the time to complete our tech challenge, good luck!
