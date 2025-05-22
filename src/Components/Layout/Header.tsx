@@ -24,7 +24,7 @@ const StyledHeader = styled(Header)`
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.small}) {
-    padding: 20px 20px 0 20px;
+    padding: 200px 20px 0 20px;
   }
 `;
 

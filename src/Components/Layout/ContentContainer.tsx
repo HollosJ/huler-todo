@@ -25,8 +25,8 @@ const StyledContentContainer = styled(ContentContainer)`
     width: 95%;
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    padding: 30px;
+  @media (max-width: ${(props) => props.theme.breakpoints.small}) {
+    padding: 150px;
   }
 `;
 
