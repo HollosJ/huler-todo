@@ -16,7 +16,7 @@ Huler Todo is a simple todo list, featuring abilities to:
 - Ability to add sub-items
 - When all sub-items are completed, the item itself should be complete
 
-This repo contains the existing work. You can either clone it locally and upload to your own repo or simply click the 'use this template' button in the top right hand corner.
+This repo contains the existing work. You can either clone it locally and upload to your own repo or simply click the 'use this template' button in the top right hand corner (must be logged in to GitHub to see this).
 
 We'd like you to finish off the project by:
 
