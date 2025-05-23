@@ -48,13 +48,13 @@ const StyledAddTodo = styled(AddTodo)`
     border: 2px solid ${(props) => props.theme.colors.grey1};
     outline: none;
     color: ${(props) => props.theme.colors.text};
-    font-weight: 100;
+    font-weight: 300;
     font-family: ${(props) => props.theme.fonts.primary};
     font-size: 16px;
     width: 100%;
     &::placeholder {
       color: ${(props) => props.theme.colors.text};
-      font-weight: 100;
+      font-weight: 300;
     }
   }
   button {

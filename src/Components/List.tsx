@@ -28,7 +28,7 @@ const StyledList = styled(List)`
   border-bottom: 1px solid ${(props) => props.theme.colors.grey2};
   padding: 30px 0;
   h2 {
-    font-weight: 100;
+    font-weight: 700;
     margin-bottom: 20px;
   }
 `;
