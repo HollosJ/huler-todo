@@ -7,11 +7,12 @@ interface AddTodoProps {
 }
 
 const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     onSubmit(name);
+    setName("");
   };
 
   return (
@@ -24,6 +25,7 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
         <input
           placeholder="Enter new Todo..."
           onChange={(e) => setName(e.target.value)}
+          value={name}
         />
         <button type="submit" />
       </form>
