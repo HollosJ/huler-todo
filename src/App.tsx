@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./Components/Layout/Header";
 import Layout from "./Components/Layout/Layout";
 import List from "./Components/List";
@@ -10,12 +10,12 @@ const initialItems: Item[] = [
   { id: 1, name: "Write documentation for new website" },
   { id: 2, name: "Speak to Dave about code review process" },
   { id: 3, name: "Plan project show and tell" },
-  { id: 4, name: "Buy Tessa a birthday card" }
+  { id: 4, name: "Buy Tessa a birthday card" },
 ];
 const initialCompletedItems: Item[] = [
   { id: 1, name: "Annual leave request for Holiday" },
   { id: 2, name: "Learn more about Typescript" },
-  { id: 3, name: "Do some christmas shopping" }
+  { id: 3, name: "Do some christmas shopping" },
 ];
 
 export default function App() {
@@ -25,10 +25,6 @@ export default function App() {
   const onSubmit = (name: string) => {
     setItems([...items, { id: 1, name }]);
   };
-
-  useEffect(() => {
-    setItems(initialItems);
-  }, [items]);
 
   return (
     <div className="App">
