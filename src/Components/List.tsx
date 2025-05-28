@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Todo from "./Todo";
-import { Item } from '../types';
+import { Item } from "../types";
 
 interface ListProps {
   className?: string;
@@ -14,7 +14,7 @@ const List = ({ className, title, items }: ListProps) => {
       <h2>{title}</h2>
       <ul>
         {items.map((item) => {
-          return <Todo name={item.name} />;
+          return <Todo name={item.name} key={item.id} />;
         })}
       </ul>
     </div>
