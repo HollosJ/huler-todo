@@ -52,15 +52,25 @@ const initialTodoItems: TodoItem[] = [
 ];
 
 export default function App() {
-  const [items, setItems] = useState(initialItems);
-  const [completedItems] = useState(initialCompletedItems);
+  const [items, setTodoItems] = useState(initialTodoItems);
 
   const onSubmit = (name: string) => {
     if (!name.trim()) return;
 
     const itemId = Date.now(); // Should use UUID here, but for simplicity, using timestamp
 
-    setItems([...items, { id: itemId, name }]);
+    setTodoItems([
+      ...items,
+      { id: itemId, name, completed: false, subTodoItems: [] },
+    ]);
+  };
+
+  const onToggleComplete = (id: number) => {
+    setTodoItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
+    );
   };
 
   return (
@@ -69,8 +79,16 @@ export default function App() {
         <Header />
         <Main>
           <AddTodo onSubmit={onSubmit} />
-          <List title="Todo" items={items} />
-          <List title="Done" items={completedItems} />
+          <List
+            title="Todo"
+            items={items.filter((item) => !item.completed)}
+            onToggleComplete={onToggleComplete}
+          />
+          <List
+            title="Done"
+            items={items.filter((item) => item.completed)}
+            onToggleComplete={onToggleComplete}
+          />
         </Main>
       </Layout>
     </div>
