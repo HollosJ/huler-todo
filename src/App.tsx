@@ -25,7 +25,7 @@ export default function App() {
   const onSubmit = (name: string) => {
     if (!name.trim()) return;
 
-    const itemId = Date.now();
+    const itemId = Date.now(); // Should use UUID here, but for simplicity, using timestamp
 
     setItems([...items, { id: itemId, name }]);
   };
