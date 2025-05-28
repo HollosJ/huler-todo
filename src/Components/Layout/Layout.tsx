@@ -18,6 +18,14 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
   }
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: ${(props) => props.theme.fonts.primary}, sans-serif;
+  }
 `;
 
 const Layout = ({ children }: LayoutProps) => {
