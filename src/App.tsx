@@ -1,21 +1,54 @@
 import { useState } from "react";
+import AddTodo from "./Components/AddTodo";
 import Header from "./Components/Layout/Header";
 import Layout from "./Components/Layout/Layout";
-import List from "./Components/List";
-import AddTodo from "./Components/AddTodo";
-import { Item } from "./types";
 import Main from "./Components/Layout/Main";
+import List from "./Components/List";
+import { TodoItem } from "./types";
 
-const initialItems: Item[] = [
-  { id: 1, name: "Write documentation for new website" },
-  { id: 2, name: "Speak to Dave about code review process" },
-  { id: 3, name: "Plan project show and tell" },
-  { id: 4, name: "Buy Tessa a birthday card" },
-];
-const initialCompletedItems: Item[] = [
-  { id: 1, name: "Annual leave request for Holiday" },
-  { id: 2, name: "Learn more about Typescript" },
-  { id: 3, name: "Do some christmas shopping" },
+const initialTodoItems: TodoItem[] = [
+  {
+    id: 1,
+    name: "Write documentation for new website",
+    completed: false,
+    subTodoItems: [],
+  },
+  {
+    id: 2,
+    name: "Speak to Dave about code review process",
+    completed: false,
+    subTodoItems: [],
+  },
+  {
+    id: 3,
+    name: "Plan project show and tell",
+    completed: false,
+    subTodoItems: [],
+  },
+  {
+    id: 4,
+    name: "Buy Tessa a birthday card",
+    subTodoItems: [{ id: 1, name: "Buy card", completed: false }],
+    completed: false,
+  },
+  {
+    id: 5,
+    name: "Annual leave request for Holiday",
+    completed: true,
+    subTodoItems: [],
+  },
+  {
+    id: 6,
+    name: "Learn more about Typescript",
+    completed: true,
+    subTodoItems: [],
+  },
+  {
+    id: 7,
+    name: "Do some christmas shopping",
+    completed: true,
+    subTodoItems: [],
+  },
 ];
 
 export default function App() {
