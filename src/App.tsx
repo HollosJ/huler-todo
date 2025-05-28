@@ -23,7 +23,11 @@ export default function App() {
   const [completedItems] = useState(initialCompletedItems);
 
   const onSubmit = (name: string) => {
-    setItems([...items, { id: 1, name }]);
+    if (!name.trim()) return;
+
+    const itemId = Date.now();
+
+    setItems([...items, { id: itemId, name }]);
   };
 
   return (
