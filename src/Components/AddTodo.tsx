@@ -16,57 +16,57 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
   };
 
   return (
-      <form
+    <form
       className={className}
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <input
-          placeholder="Enter new Todo..."
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-        <button type="submit" />
-      </form>
+      onSubmit={(e) => {
+        handleSubmit(e);
+      }}
+    >
+      <input
+        placeholder="Enter new Todo..."
+        onChange={(e) => setName(e.target.value)}
+        value={name}
+      />
+      <button type="submit" />
+    </form>
   );
 };
 
 const StyledAddTodo = styled(AddTodo)`
-  width: 100%;
-  display: block;
-  padding: 0;
-  margin-bottom: 47px;
+  margin-top: 63px;
+  margin-bottom: 75px;
   z-index: ${(props) => props.theme.zLayers.overlay};
-  form {
-    overflow: hidden;
-    display: flex;
-    position: relative;
-  }
+  overflow: hidden;
+  display: flex;
+  gap: 26px;
+  position: relative;
+  width: 100%;
+  font-weight: 300;
+
   input {
-    padding: 23px;
+    padding: 20px 50px;
+    height: 70px;
     background-color: ${(props) => props.theme.colors.grey2};
     border: 2px solid ${(props) => props.theme.colors.grey1};
+    border-radius: 999px;
     outline: none;
     color: ${(props) => props.theme.colors.text};
-    font-weight: 300;
     font-family: ${(props) => props.theme.fonts.primary};
-    font-size: 16px;
-    width: 100%;
+    font-size: 20px;
+    flex: 1;
     &::placeholder {
       color: ${(props) => props.theme.colors.text};
       font-weight: 300;
     }
   }
   button {
-    width: 46px;
-    height: 46px;
-    position: absolute;
+    width: 70px;
+    height: 70px;
     top: 0;
     right: 0;
-    border-radius: 46px;
+    border-radius: 999px;
     border: none;
-    background-color: blue;
+    background-color: ${(props) => props.theme.colors.primary};
     display: flex;
     align-items: center;
     justify-content: center;
