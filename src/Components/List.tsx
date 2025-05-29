@@ -27,9 +27,23 @@ const StyledList = styled(List)`
   width: 100%;
   border-bottom: 1px solid ${(props) => props.theme.colors.grey2};
   padding: 30px 0;
+
   h2 {
     font-weight: 700;
+    font-size: 24px;
+    color: ${(props) => props.theme.colors.grey3};
     margin-bottom: 20px;
+  }
+
+  & > ul {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.small}) {
+    & > ul {
+      gap: 50px;
+    }
   }
 `;
 
