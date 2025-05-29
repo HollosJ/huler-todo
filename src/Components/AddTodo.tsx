@@ -16,8 +16,8 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
   };
 
   return (
-    <div className={className}>
       <form
+      className={className}
         onSubmit={(e) => {
           handleSubmit(e);
         }}
@@ -29,7 +29,6 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
         />
         <button type="submit" />
       </form>
-    </div>
   );
 };
 
