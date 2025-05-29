@@ -29,13 +29,15 @@ const Todo = ({
   };
 
   return (
-    <li className={`${item.completed ? "completed" : ""} ${className}`}>
+    <li className={className}>
       <div className="todo-header">
         <div className="todo-header__left">
           <Handle />
 
           <div>
-            <h3>{item.name}</h3>
+            <h3 className={`${item.completed ? "completed" : ""}`}>
+              {item.name}
+            </h3>
 
             {!item.completed && (
               <button
@@ -148,6 +150,10 @@ const StyledTodo = styled(Todo)`
       background: url("Task_Selected.svg") no-repeat center;
       background-size: cover;
     }
+  }
+
+  .completed {
+    text-decoration: line-through;
   }
 
   .add-sub-todo {
