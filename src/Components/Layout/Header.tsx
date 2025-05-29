@@ -14,14 +14,14 @@ const Header = ({ className }: HeaderProps) => {
 
 const StyledHeader = styled(Header)`
   display: block;
-  padding: 20px;
+  padding: 20px 20px 0;
 
   > img {
     height: 32px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}) {
-    padding: 50px 20px;
+    padding: 50px 20px 0;
 
     > img {
       height: 52px;
