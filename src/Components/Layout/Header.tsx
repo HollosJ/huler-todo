@@ -14,16 +14,18 @@ const Header = ({ className }: HeaderProps) => {
 
 const StyledHeader = styled(Header)`
   display: block;
-  padding: 48px 48px 0 48px;
+  padding: 20px;
 
-  > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  > img {
+    height: 32px;
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.small}) {
-    padding: 20px 20px 0 20px;
+  @media (min-width: ${(props) => props.theme.breakpoints.small}) {
+    padding: 50px 20px;
+
+    > img {
+      height: 52px;
+    }
   }
 `;
 
