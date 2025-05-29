@@ -1,20 +1,36 @@
 import styled from "styled-components";
+import { TodoItem } from "../types";
 import Todo from "./Todo";
-import { Item } from "../types";
 
 interface ListProps {
   className?: string;
   title: string;
-  items: Item[];
+  items: TodoItem[];
+  onToggleComplete: (id: number, parentId?: number) => void;
+  onAddSubTodo: (parentId: number, name: string) => void;
 }
 
-const List = ({ className, title, items }: ListProps) => {
+const List = ({
+  className,
+  title,
+  items,
+  onToggleComplete,
+  onAddSubTodo,
+}: ListProps) => {
   return (
     <div className={className}>
       <h2>{title}</h2>
+
       <ul>
         {items.map((item) => {
-          return <Todo name={item.name} key={item.id} />;
+          return (
+            <Todo
+              item={item}
+              key={item.id}
+              onToggleComplete={onToggleComplete}
+              onAddSubTodo={onAddSubTodo}
+            />
+          );
         })}
       </ul>
     </div>
@@ -28,7 +44,7 @@ const StyledList = styled(List)`
   border-bottom: 1px solid ${(props) => props.theme.colors.grey2};
   padding: 30px 0;
 
-  h2 {
+  & > h2 {
     font-weight: 700;
     font-size: 24px;
     color: ${(props) => props.theme.colors.grey3};

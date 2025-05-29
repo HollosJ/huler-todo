@@ -66,29 +66,81 @@ export default function App() {
     ]);
   };
 
-  const onToggleComplete = (id: number) => {
+  const onAddSubTodo = (parentId: number, name: string) => {
+    if (!name.trim()) return;
+
     setTodoItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, completed: !item.completed } : item
+        item.id === parentId
+          ? {
+              ...item,
+              subTodoItems: [
+                ...item.subTodoItems,
+                { id: Date.now(), name, completed: false },
+              ],
+            }
+          : item
       )
     );
+  };
+
+  const onToggleComplete = (id: number, parentId?: number) => {
+    // If item is a top-level todo (parent id not provided), toggle its completion status
+    // If item is a sub-todo todo (parent id provided), toggle its completion status, and update the parent item if all sub-todos are completed
+    if (!parentId) {
+      setTodoItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === id ? { ...item, completed: !item.completed } : item
+        )
+      );
+      return;
+    } else {
+      setTodoItems((prevItems) =>
+        prevItems.map((item) => {
+          if (item.id === parentId) {
+            const updatedSubTodos = item.subTodoItems.map((subItem) =>
+              subItem.id === id
+                ? { ...subItem, completed: !subItem.completed }
+                : subItem
+            );
+
+            // Check if all sub-todos are completed
+            const allCompleted = updatedSubTodos.every(
+              (subItem) => subItem.completed
+            );
+
+            return {
+              ...item,
+              subTodoItems: updatedSubTodos,
+              completed: allCompleted,
+            };
+          }
+          return item;
+        })
+      );
+    }
   };
 
   return (
     <div className="App">
       <Layout>
         <Header />
+
         <Main>
           <AddTodo onSubmit={onSubmit} />
+
           <List
             title="Todo"
             items={items.filter((item) => !item.completed)}
             onToggleComplete={onToggleComplete}
+            onAddSubTodo={onAddSubTodo}
           />
+
           <List
             title="Done"
             items={items.filter((item) => item.completed)}
             onToggleComplete={onToggleComplete}
+            onAddSubTodo={onAddSubTodo}
           />
         </Main>
       </Layout>
