@@ -60,11 +60,9 @@ export default function App() {
   const onSubmit = (name: string) => {
     if (!name.trim()) return;
 
-    const itemId = Date.now(); // Should use UUID here, but for simplicity, using timestamp
-
     setTodoItems([
       ...items,
-      { id: itemId, name, completed: false, subTodoItems: [] },
+      { id: Date.now(), name, completed: false, subTodoItems: [] }, // Should use UUID for the ID here, but for simplicity, using timestamp
     ]);
   };
 
