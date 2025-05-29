@@ -28,7 +28,10 @@ const initialTodoItems: TodoItem[] = [
   {
     id: 4,
     name: "Buy Tessa a birthday card",
-    subTodoItems: [{ id: 1, name: "Buy card", completed: false }],
+    subTodoItems: [
+      { id: 1, name: "Buy card", completed: true },
+      { id: 2, name: "Write message", completed: false },
+    ],
     completed: false,
   },
   {
