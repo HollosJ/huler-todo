@@ -5,49 +5,50 @@ import Layout from "./Components/Layout/Layout";
 import Main from "./Components/Layout/Main";
 import List from "./Components/List";
 import { TodoItem } from "./types";
+import { v4 as uuid } from "uuid";
 
 const initialTodoItems: TodoItem[] = [
   {
-    id: 1,
+    id: uuid(),
     name: "Write documentation for new website",
     completed: false,
     subTodoItems: [],
   },
   {
-    id: 2,
+    id: uuid(),
     name: "Speak to Dave about code review process",
     completed: false,
     subTodoItems: [],
   },
   {
-    id: 3,
+    id: uuid(),
     name: "Plan project show and tell",
     completed: false,
     subTodoItems: [],
   },
   {
-    id: 4,
+    id: uuid(),
     name: "Buy Tessa a birthday card",
     subTodoItems: [
-      { id: 1, name: "Buy card", completed: true },
-      { id: 2, name: "Write message", completed: false },
+      { id: uuid(), name: "Buy card", completed: true },
+      { id: uuid(), name: "Write message", completed: false },
     ],
     completed: false,
   },
   {
-    id: 5,
+    id: uuid(),
     name: "Annual leave request for Holiday",
     completed: true,
     subTodoItems: [],
   },
   {
-    id: 6,
+    id: uuid(),
     name: "Learn more about Typescript",
     completed: true,
     subTodoItems: [],
   },
   {
-    id: 7,
+    id: uuid(),
     name: "Do some christmas shopping",
     completed: true,
     subTodoItems: [],
@@ -62,11 +63,11 @@ export default function App() {
 
     setTodoItems([
       ...todoItems,
-      { id: Date.now(), name, completed: false, subTodoItems: [] }, // Should use UUID for the ID here, but for simplicity, using timestamp
+      { id: uuid(), name, completed: false, subTodoItems: [] },
     ]);
   };
 
-  const onAddSubTodo = (parentId: number, name: string) => {
+  const onAddSubTodo = (parentId: string, name: string) => {
     if (!name.trim()) return;
 
     setTodoItems((prevItems) =>
@@ -76,7 +77,7 @@ export default function App() {
               ...item,
               subTodoItems: [
                 ...item.subTodoItems,
-                { id: Date.now(), name, completed: false },
+                { id: uuid(), name, completed: false },
               ],
             }
           : item
@@ -84,7 +85,7 @@ export default function App() {
     );
   };
 
-  const onToggleComplete = (id: number, parentId?: number) => {
+  const onToggleComplete = (id: string, parentId?: string) => {
     // If item is a top-level todo (parent id not provided), toggle its completion status
     // If item is a sub-todo todo (parent id provided), toggle its completion status, and update the parent item if all sub-todos are completed
     if (!parentId) {

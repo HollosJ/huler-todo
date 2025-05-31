@@ -7,8 +7,8 @@ import { useState } from "react";
 interface TodoProps {
   className?: string;
   item: TodoItem;
-  onToggleComplete: (id: number, parentId?: number) => void;
-  onAddSubTodo: (parentId: number, name: string) => void;
+  onToggleComplete: (id: string, parentId?: string) => void;
+  onAddSubTodo: (parentId: string, name: string) => void;
 }
 
 const Todo = ({

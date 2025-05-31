@@ -6,8 +6,8 @@ interface ListProps {
   className?: string;
   title: string;
   items: TodoItem[];
-  onToggleComplete: (id: number, parentId?: number) => void;
-  onAddSubTodo: (parentId: number, name: string) => void;
+  onToggleComplete: (id: string, parentId?: string) => void;
+  onAddSubTodo: (parentId: string, name: string) => void;
 }
 
 const List = ({
