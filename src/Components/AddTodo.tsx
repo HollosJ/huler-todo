@@ -26,6 +26,7 @@ const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
         placeholder="Enter new Todo..."
         onChange={(e) => setName(e.target.value)}
         value={name}
+        required
       />
       <button type="submit" />
     </form>

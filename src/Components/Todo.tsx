@@ -98,6 +98,7 @@ const Todo = ({
               value={subTodoName}
               onChange={(e) => setSubTodoName(e.target.value)}
               placeholder="Enter Subtask"
+              required
               autoFocus
             />
           </form>
