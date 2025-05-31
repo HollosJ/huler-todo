@@ -90,7 +90,17 @@ export default function App() {
     if (!parentId) {
       setTodoItems((prevItems) =>
         prevItems.map((item) =>
-          item.id === id ? { ...item, completed: !item.completed } : item
+          item.id === id
+            ? {
+                ...item,
+                completed: !item.completed,
+                // Toggle all child status
+                subTodoItems: item.subTodoItems.map((subTodoItem) => ({
+                  ...subTodoItem,
+                  completed: !item.completed,
+                })),
+              }
+            : item
         )
       );
       return;
