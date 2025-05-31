@@ -55,13 +55,13 @@ const initialTodoItems: TodoItem[] = [
 ];
 
 export default function App() {
-  const [items, setTodoItems] = useState(initialTodoItems);
+  const [todoItems, setTodoItems] = useState(initialTodoItems);
 
   const onSubmit = (name: string) => {
     if (!name.trim()) return;
 
     setTodoItems([
-      ...items,
+      ...todoItems,
       { id: Date.now(), name, completed: false, subTodoItems: [] }, // Should use UUID for the ID here, but for simplicity, using timestamp
     ]);
   };
@@ -131,14 +131,14 @@ export default function App() {
 
           <List
             title="Todo"
-            items={items.filter((item) => !item.completed)}
+            items={todoItems.filter((item) => !item.completed)}
             onToggleComplete={onToggleComplete}
             onAddSubTodo={onAddSubTodo}
           />
 
           <List
             title="Done"
-            items={items.filter((item) => item.completed)}
+            items={todoItems.filter((item) => item.completed)}
             onToggleComplete={onToggleComplete}
             onAddSubTodo={onAddSubTodo}
           />
