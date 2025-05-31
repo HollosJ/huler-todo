@@ -43,9 +43,16 @@ const Todo = ({
               <button
                 className="add-sub-todo"
                 onClick={() => setShowSubTodoInput((prev) => !prev)}
-                aria-label="Add subtask"
+                aria-label={
+                  showSubTodoInput ? "Cancel Adding Subtask" : "Add Subtask"
+                }
               >
-                <img src={PlusCircle} alt="" /> Add Subtask
+                <img
+                  src={PlusCircle}
+                  alt=""
+                  style={{ transform: showSubTodoInput ? "rotate(45deg)" : "" }}
+                />{" "}
+                {showSubTodoInput ? "Cancel" : "Add Subtask"}
               </button>
             )}
           </div>
@@ -165,6 +172,10 @@ const StyledTodo = styled(Todo)`
     align-items: center;
     font-size: 20px;
     gap: 8px;
+  }
+
+  .add-sub-todo img {
+    transition: ${(props) => props.theme.transitions.default};
   }
 
   .sub-todo-items {
