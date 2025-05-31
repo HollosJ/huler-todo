@@ -4,9 +4,6 @@ export interface SubTodoItem {
   completed: boolean;
 }
 
-export interface TodoItem {
-  id: number;
-  name: string;
-  completed: boolean;
+export interface TodoItem extends SubTodoItem {
   subTodoItems: SubTodoItem[];
 }
