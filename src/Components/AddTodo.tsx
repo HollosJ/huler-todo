@@ -72,11 +72,12 @@ const StyledAddTodo = styled(AddTodo)`
     justify-content: center;
     cursor: pointer;
     &:before {
+      content: "";
       background-image: url("Plus.svg");
       background-size: contain;
-      content: "";
-      width: 20px;
-      height: 20px;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
     }
   }
 `;
