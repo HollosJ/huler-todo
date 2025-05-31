@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     padding: 0;
     border: none;
-    outline: none;
     font-family: ${(props) => props.theme.fonts.primary}, sans-serif;
     transition: ${(props) => props.theme.transitions.default};
   }

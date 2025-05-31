@@ -40,7 +40,6 @@ const StyledAddTodo = styled(AddTodo)`
   overflow: hidden;
   display: flex;
   gap: 26px;
-  position: relative;
   width: 100%;
   font-weight: 300;
 
@@ -59,12 +58,15 @@ const StyledAddTodo = styled(AddTodo)`
       color: ${(props) => props.theme.colors.text};
       font-weight: 300;
     }
+
+    &:focus-visible {
+      border: 2px solid ${(props) => props.theme.colors.grey3};
+    }
   }
+
   button {
     width: 70px;
     height: 70px;
-    top: 0;
-    right: 0;
     border-radius: 999px;
     border: none;
     background-color: ${(props) => props.theme.colors.primary};
