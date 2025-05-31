@@ -141,7 +141,7 @@ const StyledTodo = styled(Todo)`
     background: url("Task_Empty.svg") no-repeat center;
     background-size: cover;
 
-    &:hover {
+    &:not(&--completed):hover {
       background: url("Task_Hover.svg") no-repeat center;
       background-size: cover;
     }
