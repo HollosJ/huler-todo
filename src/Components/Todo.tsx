@@ -42,7 +42,7 @@ const Todo = ({
             {!item.completed && (
               <button
                 className="add-sub-todo"
-                onClick={() => setShowSubTodoInput(true)}
+                onClick={() => setShowSubTodoInput((prev) => !prev)}
                 aria-label="Add subtask"
               >
                 <img src={PlusCircle} alt="" /> Add Subtask
@@ -62,7 +62,7 @@ const Todo = ({
 
       <div className="sub-todo-items">
         {/* Sub Items */}
-        {item.subTodoItems && item.subTodoItems.length > 0 && (
+        {item.subTodoItems.length > 0 && (
           <ul className="">
             {item.subTodoItems.map((subTodoItem) => (
               <li
