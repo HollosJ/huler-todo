@@ -26,6 +26,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.primary}, sans-serif;
     transition: ${(props) => props.theme.transitions.default};
   }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
 const Layout = ({ children }: LayoutProps) => {

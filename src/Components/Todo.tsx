@@ -46,7 +46,7 @@ const Todo = ({
     >
       <div className="todo-header">
         <div className="todo-header__left">
-          <Handle {...attributes} {...listeners} />
+          <Handle {...attributes} {...listeners} disabled={item.completed} />
 
           <div>
             <h3 className={`${item.completed ? "completed" : ""}`}>
