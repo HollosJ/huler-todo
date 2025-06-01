@@ -6,7 +6,7 @@ interface AddTodoProps {
   onSubmit: (name: string) => void;
 }
 
-const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
+export const AddTodo = ({ className, onSubmit }: AddTodoProps) => {
   const [name, setName] = useState("");
 
   const handleSubmit = (e: FormEvent) => {

@@ -20,8 +20,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src"],
+  "include": ["src", "jest.setup.ts", "jest.config.ts"],
   "files": ["src/Theming/theming.d.ts"]
 }
