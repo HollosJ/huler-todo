@@ -217,6 +217,12 @@ const StyledTodo = styled(Todo)`
   @media (min-width: ${(props) => props.theme.breakpoints.small}) {
     font-size: 20px;
 
+    /* When sub todo form, or sub todo items present, increase bottom padding */
+    &:has(.sub-todo-items li),
+    &:has(.sub-todo-items form) {
+      padding-bottom: 20px;
+    }
+
     .toggle-complete-btn {
       width: 50px;
       height: 50px;
@@ -235,7 +241,7 @@ const StyledTodo = styled(Todo)`
     }
 
     .sub-todo-items li {
-      padding: 30px 0;
+      padding: 25px 0;
     }
 
     .sub-todo-items .toggle-complete-btn {
