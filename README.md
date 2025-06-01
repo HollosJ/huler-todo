@@ -16,6 +16,7 @@ This is my submission for the Huler Front-End Engineer tech task.
   - When the user completes a parent, all subtasks are completed
   - When the user uncompletes a task, all subtasks are also uncompleted
 - Responsive, mobile-first layout (elements are reduced in size for smaller screen sizes, to avoid being too squashed)
+- Drag and drop sorting within the to-do list
 
 I added a couple of nice-to-haves for better UX and accessibility:
 
@@ -25,5 +26,5 @@ I added a couple of nice-to-haves for better UX and accessibility:
 
 ## To Do
 
-- [ ] Implement drag and drop
 - [ ] Add some unit tests
+- [ ] Allow user to drag tasks into the **Done** section to complete them
