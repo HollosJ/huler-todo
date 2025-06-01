@@ -7,6 +7,7 @@ const Handle = styled.button`
   cursor: grab;
   width: 17px;
   height: 28px;
+  flex-shrink: 0;
   background-image: url("Handle.svg");
   background-size: contain;
   background-repeat: no-repeat;
