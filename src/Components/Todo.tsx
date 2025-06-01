@@ -140,7 +140,7 @@ const StyledTodo = styled(Todo)`
   width: 100%;
   background-color: ${(props) => props.theme.colors.grey4};
   border-radius: 20px;
-  word-break: break-all;
+  word-break: break-word;
 
   .todo-header {
     display: flex;
