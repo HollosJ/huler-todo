@@ -21,18 +21,22 @@ const List = ({
     <div className={className}>
       <h2>{title}</h2>
 
-      <ul>
-        {items.map((item) => {
-          return (
-            <Todo
-              item={item}
-              key={item.id}
-              onToggleComplete={onToggleComplete}
-              onAddSubTodo={onAddSubTodo}
-            />
-          );
-        })}
-      </ul>
+      {items.length > 0 ? (
+        <ul>
+          {items.map((item) => {
+            return (
+              <Todo
+                item={item}
+                key={item.id}
+                onToggleComplete={onToggleComplete}
+                onAddSubTodo={onAddSubTodo}
+              />
+            );
+          })}
+        </ul>
+      ) : (
+        <span className="no-tasks-found">No tasks found!</span>
+      )}
     </div>
   );
 };
@@ -54,6 +58,12 @@ const StyledList = styled(List)`
   & > ul {
     display: grid;
     gap: 20px;
+  }
+
+  .no-tasks-found {
+    font-size: 20px;
+    color: ${(props) => props.theme.colors.grey3};
+    text-align: center;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}) {
