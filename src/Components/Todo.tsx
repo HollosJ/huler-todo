@@ -3,6 +3,8 @@ import Handle from "./Handle";
 import { TodoItem } from "../types";
 import PlusCircle from "/Plus_Circle.svg";
 import { useState } from "react";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 interface TodoProps {
   className?: string;
@@ -20,6 +22,14 @@ const Todo = ({
   const [showSubTodoInput, setShowSubTodoInput] = useState(false);
   const [subTodoName, setSubTodoName] = useState("");
 
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: item.id });
+
+  const style = {
+    transform: CSS.Translate.toString(transform),
+    transition,
+  };
+
   const handleAddSubTodo = () => {
     if (!subTodoName.trim()) return;
 
@@ -29,10 +39,14 @@ const Todo = ({
   };
 
   return (
-    <li className={className}>
+    <li
+      className={className}
+      ref={!item.completed ? setNodeRef : null}
+      style={style}
+    >
       <div className="todo-header">
         <div className="todo-header__left">
-          <Handle />
+          <Handle {...attributes} {...listeners} />
 
           <div>
             <h3 className={`${item.completed ? "completed" : ""}`}>

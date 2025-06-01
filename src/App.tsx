@@ -1,11 +1,27 @@
+import {
+  closestCenter,
+  DndContext,
+  DragEndEvent,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import AddTodo from "./Components/AddTodo";
 import Header from "./Components/Layout/Header";
 import Layout from "./Components/Layout/Layout";
 import Main from "./Components/Layout/Main";
 import List from "./Components/List";
 import { TodoItem } from "./types";
-import { v4 as uuid } from "uuid";
 
 const initialTodoItems: TodoItem[] = [
   {
@@ -56,7 +72,7 @@ const initialTodoItems: TodoItem[] = [
 ];
 
 export default function App() {
-  const [todoItems, setTodoItems] = useState(initialTodoItems);
+  const [todoItems, setTodoItems] = useState<TodoItem[]>(initialTodoItems);
 
   const onSubmit = (name: string) => {
     if (!name.trim()) return;
@@ -132,6 +148,28 @@ export default function App() {
     }
   };
 
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (!over) return;
+
+    if (active.id !== over.id) {
+      setTodoItems((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+  };
+
   return (
     <div className="App">
       <Layout>
@@ -140,19 +178,31 @@ export default function App() {
         <Main>
           <AddTodo onSubmit={onSubmit} />
 
-          <List
-            title="Todo"
-            items={todoItems.filter((item) => !item.completed)}
-            onToggleComplete={onToggleComplete}
-            onAddSubTodo={onAddSubTodo}
-          />
+          <DndContext
+            onDragEnd={handleDragEnd}
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            modifiers={[restrictToVerticalAxis]}
+          >
+            <SortableContext
+              items={todoItems.map((item) => item.id)}
+              strategy={verticalListSortingStrategy}
+            >
+              <List
+                title="Todo"
+                items={todoItems.filter((item) => !item.completed)}
+                onToggleComplete={onToggleComplete}
+                onAddSubTodo={onAddSubTodo}
+              />
+            </SortableContext>
 
-          <List
-            title="Done"
-            items={todoItems.filter((item) => item.completed)}
-            onToggleComplete={onToggleComplete}
-            onAddSubTodo={onAddSubTodo}
-          />
+            <List
+              title="Done"
+              items={todoItems.filter((item) => item.completed)}
+              onToggleComplete={onToggleComplete}
+              onAddSubTodo={onAddSubTodo}
+            />
+          </DndContext>
         </Main>
       </Layout>
     </div>
