@@ -140,6 +140,7 @@ const StyledTodo = styled(Todo)`
   width: 100%;
   background-color: ${(props) => props.theme.colors.grey4};
   border-radius: 20px;
+  word-break: break-all;
 
   .todo-header {
     display: flex;
@@ -169,11 +170,7 @@ const StyledTodo = styled(Todo)`
     transition: ${(props) => props.theme.transitions.default};
     background: url("Task_Empty.svg") no-repeat center;
     background-size: cover;
-
-    &:not(&--completed):hover {
-      background: url("Task_Hover.svg") no-repeat center;
-      background-size: cover;
-    }
+    flex-shrink: 0;
 
     &--completed {
       background: url("Task_Selected.svg") no-repeat center;
@@ -232,6 +229,7 @@ const StyledTodo = styled(Todo)`
     border: none;
     outline: none;
     font-size: 20px;
+    width: 100%;
     color: ${(props) => props.theme.colors.grey3};
   }
 
@@ -247,6 +245,11 @@ const StyledTodo = styled(Todo)`
     .toggle-complete-btn {
       width: 50px;
       height: 50px;
+
+      &:not(&--completed):hover {
+        background: url("Task_Hover.svg") no-repeat center;
+        background-size: cover;
+      }
     }
 
     .todo-header {
