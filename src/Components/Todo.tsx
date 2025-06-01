@@ -74,7 +74,9 @@ const Todo = ({
 
         <button
           onClick={() => onToggleComplete(item.id)}
-          aria-label="Toggle task completed"
+          aria-label={
+            item.completed ? "Set task uncomplete" : "Set task complete"
+          }
           className={`toggle-complete-btn ${
             item.completed ? "toggle-complete-btn--completed" : ""
           }`}
@@ -98,6 +100,11 @@ const Todo = ({
                       ? "toggle-complete-btn--completed"
                       : ""
                   }`}
+                  aria-label={
+                    subTodoItem.completed
+                      ? "Set task uncomplete"
+                      : "Set task complete"
+                  }
                   onClick={() => {
                     onToggleComplete(subTodoItem.id, item.id);
                   }}
