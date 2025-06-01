@@ -7,7 +7,9 @@ interface HeaderProps {
 const Header = ({ className }: HeaderProps) => {
   return (
     <div className={className}>
-      <img src="Logo.svg" alt="Huler Todo" />
+      <h1>
+        <img src="Logo.svg" alt="Huler Todo" aria-label="Huler Todo" />
+      </h1>
     </div>
   );
 };
