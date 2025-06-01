@@ -12,6 +12,7 @@ const Handle = styled.button`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  touch-action: none; //https://github.com/clauderic/dnd-kit/issues/435#issuecomment-905879502
 
   &:active {
     cursor: grabbing;
